@@ -8,7 +8,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.edgeai.ml.VqaExecutor
+import com.example.edgeai.ml.CLIPInference
 import kotlinx.coroutines.launch
 
 // Represents the current state of our UI
@@ -23,12 +23,12 @@ class MainViewModel : ViewModel() {
     var uiState by mutableStateOf(VqaUiState())
         private set
 
-    private lateinit var vqaExecutor: VqaExecutor
+    private lateinit var CLIPInference: CLIPInference
 
     fun initialize(context: Context) {
         // We only initialize the executor once
-        if (!::vqaExecutor.isInitialized) {
-            vqaExecutor = VqaExecutor(context)
+        if (!::CLIPInference.isInitialized) {
+            CLIPInference = CLIPInference(context)
         }
     }
 
@@ -47,7 +47,7 @@ class MainViewModel : ViewModel() {
         // Launch a coroutine to run the model without freezing the UI
         viewModelScope.launch {
             uiState = uiState.copy(isLoading = true)
-            val result = vqaExecutor.execute(image, question)
+            val result = CLIPInference.execute(image, question)
             uiState = uiState.copy(answer = result, isLoading = false)
         }
     }
