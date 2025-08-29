@@ -1,1 +1,2 @@
 app/src/main/assets/models/openai_clip.dlc filter=lfs diff=lfs merge=lfs -text
+*.dlc filter=lfs diff=lfs merge=lfs -text
