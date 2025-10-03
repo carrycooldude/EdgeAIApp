@@ -1,0 +1,61 @@
+{
+  "version": "1.0",
+  "truncation": null,
+  "padding": null,
+  "added_tokens": [
+    {
+      "id": 0,
+      "content": "<unk>",
+      "special": true
+    },
+    {
+      "id": 1,
+      "content": "<s>",
+      "special": true
+    },
+    {
+      "id": 2,
+      "content": "</s>",
+      "special": true
+    }
+  ],
+  "normalizer": {
+    "type": "Sequence",
+    "normalizers": [
+      {
+        "type": "Prepend",
+        "prepend": "\u2581"
+      },
+      {
+        "type": "Replace",
+        "pattern": {
+          "String": " "
+        },
+        "content": "\u2581"
+      }
+    ]
+  },
+  "pre_tokenizer": {
+    "type": "Sequence",
+    "pretokenizers": [
+      {
+        "type": "Split",
+        "pattern": {
+          "Regex": "'(?:[sdmt]|ll|ve|re)| ?\\p{L}+| ?\\p{N}+| ?[^\\s\\p{L}\\p{N}]+|\\s+(?!\\S)|\\s+"
+        },
+        "behavior": "Isolated"
+      }
+    ]
+  },
+  "model": {
+    "type": "BPE",
+    "dropout": null,
+    "unk_token": "<unk>",
+    "continuing_subword_prefix": null,
+    "end_of_word_suffix": null,
+    "fuse_unk": false,
+    "byte_fallback": false,
+    "vocab": {},
+    "merges": []
+  }
+}

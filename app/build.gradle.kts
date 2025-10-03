@@ -7,7 +7,7 @@ plugins {
 android {
     namespace = "com.example.edgeai"
     compileSdk = 36
-    ndkVersion = "27.3.13750724"
+    ndkVersion = "25.1.8937393"
 
     defaultConfig {
         applicationId = "com.example.edgeai"
@@ -38,6 +38,13 @@ android {
     buildFeatures {
         compose = true
     }
+    externalNativeBuild {
+        cmake {
+            path = file("src/main/cpp/CMakeLists.txt")
+            version = "3.22.1"
+        }
+    }
+    ndkVersion = "25.1.8937393"
 }
 
 dependencies {
@@ -60,4 +67,8 @@ dependencies {
     implementation("org.pytorch:pytorch_android:1.13.1")
     implementation("org.pytorch:pytorch_android_torchvision:1.13.1")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.1")
+    
+    // Additional ML dependencies for LLaMA
+    implementation("com.google.code.gson:gson:2.10.1")
+    implementation("org.apache.commons:commons-lang3:3.12.0")
 }

@@ -47,7 +47,12 @@ class MainViewModel : ViewModel() {
         // Launch a coroutine to run the model without freezing the UI
         viewModelScope.launch {
             uiState = uiState.copy(isLoading = true)
-            val result = CLIPInference.execute(image, question)
+            val results = CLIPInference.runInference(image)
+            val result = if (results != null) {
+                "Inference completed. Found ${results.size} output tensors."
+            } else {
+                "Inference failed or returned no results."
+            }
             uiState = uiState.copy(answer = result, isLoading = false)
         }
     }

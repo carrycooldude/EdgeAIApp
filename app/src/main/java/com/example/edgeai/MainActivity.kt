@@ -12,14 +12,19 @@ import android.os.Environment
 import android.provider.MediaStore
 import android.util.Log
 import android.widget.Button
+import android.widget.EditText
 import android.widget.ImageView
+import android.widget.LinearLayout
+import android.widget.RadioButton
+import android.widget.RadioGroup
+import android.widget.SeekBar
 import android.widget.TextView
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
 import com.example.edgeai.ml.CLIPInference
+import com.example.edgeai.ml.LLaMAInference
 import kotlinx.coroutines.*
 import java.io.File
 import java.text.SimpleDateFormat
@@ -29,7 +34,7 @@ import java.util.*
  * EdgeAI CLIP Inference Demo
  * Main activity for running CLIP inference on Qualcomm EdgeAI
  */
-class MainActivity : AppCompatActivity() {
+class MainActivity : Activity() {
 
     // UI Components
     private lateinit var imageView: ImageView
@@ -37,11 +42,27 @@ class MainActivity : AppCompatActivity() {
     private lateinit var captureButton: Button
     private lateinit var galleryButton: Button
     private lateinit var inferenceButton: Button
+    
+    // New UI Components for LLaMA
+    private lateinit var modelSelectionGroup: RadioGroup
+    private lateinit var clipModelRadio: RadioButton
+    private lateinit var llamaModelRadio: RadioButton
+    private lateinit var clipImageSection: LinearLayout
+    private lateinit var llamaTextSection: LinearLayout
+    private lateinit var clipActionButtons: LinearLayout
+    private lateinit var llamaActionButtons: LinearLayout
+    private lateinit var textInput: EditText
+    private lateinit var maxTokensSeekBar: SeekBar
+    private lateinit var maxTokensText: TextView
+    private lateinit var clearTextButton: Button
+    private lateinit var exampleButton: Button
 
     // ML Components
     private var clipInference: CLIPInference? = null
+    private var llamaInference: LLaMAInference? = null
     private var currentBitmap: Bitmap? = null
     private var currentPhotoPath: String = ""
+    private var currentModel: String = "CLIP" // "CLIP" or "LLaMA"
 
     companion object {
         private const val TAG = "EdgeAI_CLIP"
@@ -58,7 +79,7 @@ class MainActivity : AppCompatActivity() {
 
         initializeViews()
         requestPermissions()
-        initializeCLIP()
+        initializeModels()
     }
 
     /**
@@ -66,11 +87,34 @@ class MainActivity : AppCompatActivity() {
      */
     private fun initializeViews() {
         try {
+            // Basic UI components
             imageView = findViewById(R.id.imageView)
             resultTextView = findViewById(R.id.resultTextView)
             captureButton = findViewById(R.id.captureButton)
             galleryButton = findViewById(R.id.galleryButton)
             inferenceButton = findViewById(R.id.inferenceButton)
+            
+            // New UI components for model selection
+            modelSelectionGroup = findViewById(R.id.modelSelectionGroup)
+            clipModelRadio = findViewById(R.id.clipModelRadio)
+            llamaModelRadio = findViewById(R.id.llamaModelRadio)
+            clipImageSection = findViewById(R.id.clipImageSection)
+            llamaTextSection = findViewById(R.id.llamaTextSection)
+            clipActionButtons = findViewById(R.id.clipActionButtons)
+            llamaActionButtons = findViewById(R.id.llamaActionButtons)
+            textInput = findViewById(R.id.textInput)
+            maxTokensSeekBar = findViewById(R.id.maxTokensSeekBar)
+            maxTokensText = findViewById(R.id.maxTokensText)
+            clearTextButton = findViewById(R.id.clearTextButton)
+            exampleButton = findViewById(R.id.exampleButton)
+
+            // Set up model selection listener
+            modelSelectionGroup.setOnCheckedChangeListener { _, checkedId ->
+                when (checkedId) {
+                    R.id.clipModelRadio -> switchToCLIPModel()
+                    R.id.llamaModelRadio -> switchToLLaMAModel()
+                }
+            }
 
             // Set up button click listeners
             captureButton.setOnClickListener {
@@ -81,14 +125,34 @@ class MainActivity : AppCompatActivity() {
                 Log.i(TAG, "🖼️ Gallery button clicked")
                 selectFromGallery()
             }
+            clearTextButton.setOnClickListener {
+                Log.i(TAG, "🗑️ Clear text button clicked")
+                textInput.setText("")
+            }
+            exampleButton.setOnClickListener {
+                Log.i(TAG, "💡 Example button clicked")
+                loadExamplePrompt()
+            }
             inferenceButton.setOnClickListener {
                 Log.i(TAG, "🚀 Inference button clicked")
                 runInference()
             }
 
+            // Set up max tokens seekbar
+            maxTokensSeekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+                override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
+                    maxTokensText.text = "$progress tokens"
+                }
+                override fun onStartTrackingTouch(seekBar: SeekBar?) {}
+                override fun onStopTrackingTouch(seekBar: SeekBar?) {}
+            })
+
             // Initially disable inference until model is loaded
             inferenceButton.isEnabled = false
-            resultTextView.text = "🔄 Initializing CLIP model..."
+            resultTextView.text = "🔄 Initializing models..."
+
+            // Start with CLIP model
+            switchToCLIPModel()
 
             Log.i(TAG, "✅ UI components initialized successfully")
 
@@ -99,7 +163,97 @@ class MainActivity : AppCompatActivity() {
     }
 
     /**
-     * Initialize CLIP inference engine
+     * Switch to CLIP model UI
+     */
+    private fun switchToCLIPModel() {
+        currentModel = "CLIP"
+        clipImageSection.visibility = LinearLayout.VISIBLE
+        llamaTextSection.visibility = LinearLayout.GONE
+        clipActionButtons.visibility = LinearLayout.VISIBLE
+        llamaActionButtons.visibility = LinearLayout.GONE
+        inferenceButton.text = "🚀 Run CLIP Inference"
+        Log.i(TAG, "🖼️ Switched to CLIP model")
+    }
+
+    /**
+     * Switch to LLaMA model UI
+     */
+    private fun switchToLLaMAModel() {
+        currentModel = "LLaMA"
+        clipImageSection.visibility = LinearLayout.GONE
+        llamaTextSection.visibility = LinearLayout.VISIBLE
+        clipActionButtons.visibility = LinearLayout.GONE
+        llamaActionButtons.visibility = LinearLayout.VISIBLE
+        inferenceButton.text = "🚀 Run LLaMA Inference"
+        Log.i(TAG, "📝 Switched to LLaMA model")
+    }
+
+    /**
+     * Load example prompt for LLaMA
+     */
+    private fun loadExamplePrompt() {
+        val examples = listOf(
+            "Explain the concept of artificial intelligence in simple terms.",
+            "Write a short story about a robot learning to paint.",
+            "What are the benefits of renewable energy?",
+            "Describe the process of photosynthesis.",
+            "How does machine learning work?"
+        )
+        val randomExample = examples.random()
+        textInput.setText(randomExample)
+        Log.i(TAG, "💡 Loaded example prompt: ${randomExample.take(50)}...")
+    }
+
+    /**
+     * Initialize both CLIP and LLaMA models
+     */
+    private fun initializeModels() {
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
+                Log.i(TAG, "🔧 Initializing both CLIP and LLaMA models...")
+
+                // Initialize CLIP
+                clipInference = CLIPInference(this@MainActivity)
+                val clipSuccess = clipInference?.initialize() ?: false
+
+                // Initialize LLaMA
+                llamaInference = LLaMAInference(this@MainActivity)
+                val llamaSuccess = llamaInference?.initialize() ?: false
+
+                withContext(Dispatchers.Main) {
+                    val status = buildString {
+                        append("✅ Models Status:\n")
+                        append("CLIP: ${if (clipSuccess) "Ready" else "Failed"}\n")
+                        append("LLaMA: ${if (llamaSuccess) "Ready" else "Failed"}\n\n")
+                        if (clipSuccess && llamaSuccess) {
+                            append("Both models are ready! Select a model and start inference.")
+                        } else {
+                            append("Some models failed to load. Check logs for details.")
+                        }
+                    }
+                    
+                    resultTextView.text = status
+                    inferenceButton.isEnabled = clipSuccess || llamaSuccess
+                    
+                    if (clipSuccess && llamaSuccess) {
+                        Toast.makeText(this@MainActivity, "All models loaded successfully!", Toast.LENGTH_SHORT).show()
+                    } else {
+                        Toast.makeText(this@MainActivity, "Some models failed to load", Toast.LENGTH_LONG).show()
+                    }
+                }
+
+            } catch (e: Exception) {
+                Log.e(TAG, "❌ Model initialization error: ${e.message}", e)
+                withContext(Dispatchers.Main) {
+                    resultTextView.text = "❌ Model initialization error: ${e.message}"
+                    Toast.makeText(this@MainActivity, "Model initialization failed", Toast.LENGTH_LONG).show()
+                }
+            }
+        }
+    }
+
+    /**
+     * Initialize CLIP inference engine (legacy method)
      */
     private fun initializeCLIP() {
         CoroutineScope(Dispatchers.IO).launch {
@@ -264,9 +418,22 @@ class MainActivity : AppCompatActivity() {
     }
 
     /**
-     * Run CLIP inference on current image
+     * Run inference based on selected model
      */
     private fun runInference() {
+        when (currentModel) {
+            "CLIP" -> runCLIPInference()
+            "LLaMA" -> runLLaMAInference()
+            else -> {
+                Toast.makeText(this, "No model selected", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+    /**
+     * Run CLIP inference on current image
+     */
+    private fun runCLIPInference() {
         val bitmap = currentBitmap
         if (bitmap == null) {
             Toast.makeText(this, "Please select an image first", Toast.LENGTH_SHORT).show()
@@ -292,33 +459,87 @@ class MainActivity : AppCompatActivity() {
                 val results = clipInference?.runInference(bitmap)
 
                 val inferenceTime = System.currentTimeMillis() - startTime
-                Log.i(TAG, "✅ Inference completed in ${inferenceTime}ms")
+                Log.i(TAG, "✅ CLIP inference completed in ${inferenceTime}ms")
 
                 // Format and display results
-                val formattedResults = formatResults(results, inferenceTime)
+                val formattedResults = formatCLIPResults(results, inferenceTime)
                 saveResults(formattedResults)
 
                 withContext(Dispatchers.Main) {
                     resultTextView.text = formattedResults
                     inferenceButton.isEnabled = true
-                    Toast.makeText(this@MainActivity, "✅ Inference completed in ${inferenceTime}ms!", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@MainActivity, "✅ CLIP inference completed in ${inferenceTime}ms!", Toast.LENGTH_SHORT).show()
                 }
 
             } catch (e: Exception) {
-                Log.e(TAG, "❌ Inference failed: ${e.message}", e)
+                Log.e(TAG, "❌ CLIP inference failed: ${e.message}", e)
                 withContext(Dispatchers.Main) {
-                    resultTextView.text = "❌ Inference failed: ${e.message}\n\nCheck logs for more details."
+                    resultTextView.text = "❌ CLIP inference failed: ${e.message}\n\nCheck logs for more details."
                     inferenceButton.isEnabled = true
-                    Toast.makeText(this@MainActivity, "Inference failed", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@MainActivity, "CLIP inference failed", Toast.LENGTH_SHORT).show()
                 }
             }
         }
     }
 
     /**
-     * Format inference results for display
+     * Run LLaMA inference on input text
      */
-    private fun formatResults(results: Map<String, FloatArray>?, inferenceTime: Long): String {
+    private fun runLLaMAInference() {
+        val inputText = textInput.text.toString().trim()
+        if (inputText.isEmpty()) {
+            Toast.makeText(this, "Please enter some text first", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        if (llamaInference == null) {
+            Toast.makeText(this, "LLaMA model not initialized", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        val maxTokens = maxTokensSeekBar.progress
+
+        // Disable button during inference
+        inferenceButton.isEnabled = false
+        resultTextView.text = "🔄 Running LLaMA inference on text: ${inputText.take(50)}..."
+
+        Log.i(TAG, "🚀 Starting LLaMA inference...")
+
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
+                val startTime = System.currentTimeMillis()
+
+                // Run inference
+                val result = llamaInference?.runInference(inputText, maxTokens)
+
+                val inferenceTime = System.currentTimeMillis() - startTime
+                Log.i(TAG, "✅ LLaMA inference completed in ${inferenceTime}ms")
+
+                // Format and display results
+                val formattedResults = formatLLaMAResults(result, inputText, maxTokens, inferenceTime)
+                saveResults(formattedResults)
+
+                withContext(Dispatchers.Main) {
+                    resultTextView.text = formattedResults
+                    inferenceButton.isEnabled = true
+                    Toast.makeText(this@MainActivity, "✅ LLaMA inference completed in ${inferenceTime}ms!", Toast.LENGTH_SHORT).show()
+                }
+
+            } catch (e: Exception) {
+                Log.e(TAG, "❌ LLaMA inference failed: ${e.message}", e)
+                withContext(Dispatchers.Main) {
+                    resultTextView.text = "❌ LLaMA inference failed: ${e.message}\n\nCheck logs for more details."
+                    inferenceButton.isEnabled = true
+                    Toast.makeText(this@MainActivity, "LLaMA inference failed", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+    }
+
+    /**
+     * Format CLIP inference results for display
+     */
+    private fun formatCLIPResults(results: Map<String, FloatArray>?, inferenceTime: Long): String {
         if (results.isNullOrEmpty()) {
             return "❌ No inference results received\n\nPossible issues:\n- Model not loaded properly\n- QNN runtime error\n- Input preprocessing error"
         }
@@ -362,6 +583,34 @@ class MainActivity : AppCompatActivity() {
 
             builder.append("\n")
         }
+
+        builder.append("💾 Results saved to external storage\n")
+        builder.append("📱 Device: ${android.os.Build.MODEL} (${android.os.Build.DEVICE})\n")
+
+        return builder.toString()
+    }
+
+    /**
+     * Format LLaMA inference results for display
+     */
+    private fun formatLLaMAResults(result: String?, inputText: String, maxTokens: Int, inferenceTime: Long): String {
+        if (result.isNullOrEmpty()) {
+            return "❌ No LLaMA inference result received\n\nPossible issues:\n- Model not loaded properly\n- QNN runtime error\n- Input processing error"
+        }
+
+        val builder = StringBuilder()
+        builder.append("🎯 LLaMA Inference Results\n")
+        builder.append("=" .repeat(40) + "\n")
+        builder.append("⏱️ Inference Time: ${inferenceTime}ms\n")
+        builder.append("📅 Timestamp: ${SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(Date())}\n")
+        builder.append("📝 Input Text: ${inputText.take(100)}${if (inputText.length > 100) "..." else ""}\n")
+        builder.append("🔢 Max Tokens: $maxTokens\n")
+        builder.append("📏 Generated Length: ${result.length} characters\n\n")
+
+        builder.append("🤖 Generated Response:\n")
+        builder.append("-".repeat(40) + "\n")
+        builder.append(result)
+        builder.append("\n" + "-".repeat(40) + "\n\n")
 
         builder.append("💾 Results saved to external storage\n")
         builder.append("📱 Device: ${android.os.Build.MODEL} (${android.os.Build.DEVICE})\n")
@@ -423,6 +672,8 @@ class MainActivity : AppCompatActivity() {
         try {
             clipInference?.release()
             clipInference = null
+            llamaInference?.release()
+            llamaInference = null
             currentBitmap?.recycle()
             currentBitmap = null
         } catch (e: Exception) {
