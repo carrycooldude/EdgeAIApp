@@ -1,20 +1,45 @@
-*.iml
-.gradle
-/local.properties
-/.idea/caches
-/.idea/libraries
-/.idea/modules.xml
-/.idea/workspace.xml
-/.idea/navEditor.xml
-/.idea/assetWizardSettings.xml
-.DS_Store
-/build
-/captures
-.externalNativeBuild
-.cxx
-local.properties
-a p p / s r c / m a i n / a s s e t s / m o d e l s / o p e n a i _ c l i p . d l c 
-app/src/main/assets/models/*.dlc
+# Android
+*.apk
+*.aab
+*.ap_
+*.dex
+*.class
 
- 
- 
+# Build outputs
+app/build/
+build/
+.gradle/
+local.properties
+
+# IDE
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+
+# Large model files (keep configs, exclude binaries)
+*.pt
+*.bin
+*.pth
+*.onnx
+*.tflite
+
+# Native libraries (too large for Git)
+*.so
+*.dll
+*.dylib
+
+# Keep only essential files for the repository
+!app/src/main/jniLibs/arm64-v8a/README.md
+!app/src/main/jniLibs/armeabi-v7a/README.md
