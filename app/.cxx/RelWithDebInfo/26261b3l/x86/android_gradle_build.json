@@ -1,0 +1,38 @@
+{
+  "buildFiles": [
+    "C:\\Users\\rawat\\AndroidStudioProjects\\EdgeAI\\app\\src\\main\\cpp\\CMakeLists.txt"
+  ],
+  "cleanCommandsComponents": [
+    [
+      "C:\\Users\\rawat\\AppData\\Local\\Android\\Sdk\\cmake\\3.22.1\\bin\\ninja.exe",
+      "-C",
+      "C:\\Users\\rawat\\AndroidStudioProjects\\EdgeAI\\app\\.cxx\\RelWithDebInfo\\26261b3l\\x86",
+      "clean"
+    ]
+  ],
+  "buildTargetsCommandComponents": [
+    "C:\\Users\\rawat\\AppData\\Local\\Android\\Sdk\\cmake\\3.22.1\\bin\\ninja.exe",
+    "-C",
+    "C:\\Users\\rawat\\AndroidStudioProjects\\EdgeAI\\app\\.cxx\\RelWithDebInfo\\26261b3l\\x86",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
+  "libraries": {
+    "edgeai_qnn::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "x86",
+      "artifactName": "edgeai_qnn",
+      "output": "C:\\Users\\rawat\\AndroidStudioProjects\\EdgeAI\\app\\build\\intermediates\\cxx\\RelWithDebInfo\\26261b3l\\obj\\x86\\libedgeai_qnn.so",
+      "runtimeFiles": []
+    }
+  },
+  "toolchains": {
+    "toolchain": {
+      "cCompilerExecutable": "C:\\Users\\rawat\\AppData\\Local\\Android\\Sdk\\ndk\\25.1.8937393\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang.exe",
+      "cppCompilerExecutable": "C:\\Users\\rawat\\AppData\\Local\\Android\\Sdk\\ndk\\25.1.8937393\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe"
+    }
+  },
+  "cFileExtensions": [],
+  "cppFileExtensions": [
+    "cpp"
+  ]
+}

@@ -17,6 +17,26 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        
+        // Samsung S25 Ultra compatibility
+        ndk {
+            abiFilters += listOf("arm64-v8a", "armeabi-v7a")
+        }
+        
+        // Samsung S25 Ultra page size compatibility
+        packaging {
+            jniLibs {
+                useLegacyPackaging = false
+                // Add Samsung S25 Ultra specific packaging options
+                pickFirsts += listOf("**/libedgeai_qnn.so")
+            }
+        }
+        
+        // Samsung S25 Ultra specific configurations
+        manifestPlaceholders["samsung_s25_ultra_compat"] = "true"
+        
+        // Memory management for Samsung S25 Ultra
+        multiDexEnabled = true
     }
 
     buildTypes {
@@ -26,6 +46,15 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+        }
+        debug {
+            isMinifyEnabled = false
+            // Enable 16 KB page size compatibility for debug builds
+            packaging {
+                jniLibs {
+                    useLegacyPackaging = false
+                }
+            }
         }
     }
     compileOptions {
@@ -64,8 +93,6 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
-    implementation("org.pytorch:pytorch_android:1.13.1")
-    implementation("org.pytorch:pytorch_android_torchvision:1.13.1")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.1")
     
     // Additional ML dependencies for LLaMA

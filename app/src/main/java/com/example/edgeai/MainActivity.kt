@@ -210,15 +210,23 @@ class MainActivity : Activity() {
     private fun initializeModels() {
         CoroutineScope(Dispatchers.IO).launch {
             try {
-                Log.i(TAG, "🔧 Initializing both CLIP and LLaMA models...")
+                Log.i(TAG, "🔧 Initializing simplified models...")
 
-                // Initialize CLIP
+                // Initialize CLIP (simplified)
                 clipInference = CLIPInference(this@MainActivity)
                 val clipSuccess = clipInference?.initialize() ?: false
 
-                // Initialize LLaMA
+                // Initialize LLaMA (simplified)
+                Log.i(TAG, "🚀 Creating LLaMAInference instance...")
                 llamaInference = LLaMAInference(this@MainActivity)
-                val llamaSuccess = llamaInference?.initialize() ?: false
+                Log.i(TAG, "🔧 Calling LLaMA initialize()...")
+                val llamaSuccess = try {
+                    llamaInference?.initialize() ?: false
+                } catch (e: Exception) {
+                    Log.e(TAG, "❌ LLaMA initialization failed: ${e.message}", e)
+                    false
+                }
+                Log.i(TAG, "📊 LLaMA initialization result: $llamaSuccess")
 
                 withContext(Dispatchers.Main) {
                     val status = buildString {

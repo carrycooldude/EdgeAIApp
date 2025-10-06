@@ -63,10 +63,10 @@ EdgeAI is a cutting-edge Android application that demonstrates **real LLaMA mode
 ### Installation
 
 1. **Clone the Repository**
-   ```bash
+```bash
    git clone https://github.com/carrycooldude/EdgeAIApp.git
    cd EdgeAIApp
-   ```
+```
 
 2. **Install QNN Libraries**
    ```bash
@@ -76,10 +76,10 @@ EdgeAI is a cutting-edge Android application that demonstrates **real LLaMA mode
    ```
 
 3. **Build and Install**
-   ```bash
-   ./gradlew assembleDebug
-   adb install app/build/outputs/apk/debug/app-debug.apk
-   ```
+```bash
+./gradlew assembleDebug
+adb install app/build/outputs/apk/debug/app-debug.apk
+```
 
 ### Usage
 
@@ -222,7 +222,7 @@ private fun generateLLaMAResponse(inputText: String): String {
 
 ### Build Configuration
 
-```kotlin
+   ```kotlin
 // app/build.gradle.kts
 android {
     compileSdk 34

@@ -1,0 +1,17 @@
+[
+{
+  "directory": "C:/Users/rawat/AndroidStudioProjects/EdgeAI/app/.cxx/Debug/5u3hu282/x86_64",
+  "command": "C:\\Users\\rawat\\AppData\\Local\\Android\\Sdk\\ndk\\25.1.8937393\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe --target=x86_64-none-linux-android24 --sysroot=C:/Users/rawat/AppData/Local/Android/Sdk/ndk/25.1.8937393/toolchains/llvm/prebuilt/windows-x86_64/sysroot -Dedgeai_qnn_EXPORTS -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -fno-limit-debug-info  -fPIC -o CMakeFiles\\edgeai_qnn.dir\\qnn_infer.cpp.o -c C:\\Users\\rawat\\AndroidStudioProjects\\EdgeAI\\app\\src\\main\\cpp\\qnn_infer.cpp",
+  "file": "C:\\Users\\rawat\\AndroidStudioProjects\\EdgeAI\\app\\src\\main\\cpp\\qnn_infer.cpp"
+},
+{
+  "directory": "C:/Users/rawat/AndroidStudioProjects/EdgeAI/app/.cxx/Debug/5u3hu282/x86_64",
+  "command": "C:\\Users\\rawat\\AppData\\Local\\Android\\Sdk\\ndk\\25.1.8937393\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe --target=x86_64-none-linux-android24 --sysroot=C:/Users/rawat/AppData/Local/Android/Sdk/ndk/25.1.8937393/toolchains/llvm/prebuilt/windows-x86_64/sysroot -Dedgeai_qnn_EXPORTS -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -fno-limit-debug-info  -fPIC -o CMakeFiles\\edgeai_qnn.dir\\qnn_manager.cpp.o -c C:\\Users\\rawat\\AndroidStudioProjects\\EdgeAI\\app\\src\\main\\cpp\\qnn_manager.cpp",
+  "file": "C:\\Users\\rawat\\AndroidStudioProjects\\EdgeAI\\app\\src\\main\\cpp\\qnn_manager.cpp"
+},
+{
+  "directory": "C:/Users/rawat/AndroidStudioProjects/EdgeAI/app/.cxx/Debug/5u3hu282/x86_64",
+  "command": "C:\\Users\\rawat\\AppData\\Local\\Android\\Sdk\\ndk\\25.1.8937393\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe --target=x86_64-none-linux-android24 --sysroot=C:/Users/rawat/AppData/Local/Android/Sdk/ndk/25.1.8937393/toolchains/llvm/prebuilt/windows-x86_64/sysroot -Dedgeai_qnn_EXPORTS -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -fno-limit-debug-info  -fPIC -o CMakeFiles\\edgeai_qnn.dir\\real_qnn_inference.cpp.o -c C:\\Users\\rawat\\AndroidStudioProjects\\EdgeAI\\app\\src\\main\\cpp\\real_qnn_inference.cpp",
+  "file": "C:\\Users\\rawat\\AndroidStudioProjects\\EdgeAI\\app\\src\\main\\cpp\\real_qnn_inference.cpp"
+}
+]
