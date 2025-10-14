@@ -518,7 +518,7 @@ class MainActivity : Activity() {
                 val startTime = System.currentTimeMillis()
 
                 // Run inference
-                val result = llamaInference?.runInference(inputText, maxTokens)
+                val result = llamaInference?.runInference(inputText)
 
                 val inferenceTime = System.currentTimeMillis() - startTime
                 Log.i(TAG, "✅ LLaMA inference completed in ${inferenceTime}ms")
