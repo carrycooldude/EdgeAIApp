@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EdgeAI Documentation - Real ExecuTorch + QNN Integration</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <meta name="description" content="EdgeAI - Real Llama3.2-1B inference on Android with ExecuTorch + Qualcomm QNN backend">
+    <meta name="keywords" content="EdgeAI, ExecuTorch, QNN, Llama3.2, Android, AI, Machine Learning">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1>🧠 EdgeAI</h1>
+                <p>Real ExecuTorch + QNN Integration</p>
+            </div>
+            <nav class="nav">
+                <a href="#overview">Overview</a>
+                <a href="#features">Features</a>
+                <a href="#setup">Setup</a>
+                <a href="#docs">Documentation</a>
+                <a href="#releases">Releases</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <section id="hero" class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>🚀 EdgeAI v1.4.0</h1>
+                    <h2>Real Llama3.2-1B Inference on Android</h2>
+                    <p class="hero-description">
+                        The first Android app to demonstrate <strong>real Llama3.2-1B inference</strong> 
+                        using ExecuTorch with Qualcomm QNN backend. No more simulated responses - 
+                        this is actual AI running on your mobile device.
+                    </p>
+                    <div class="hero-badges">
+                        <span class="badge">ExecuTorch 0.7.0</span>
+                        <span class="badge">QNN v79</span>
+                        <span class="badge">Llama3.2-1B</span>
+                        <span class="badge">Hardware Accelerated</span>
+                    </div>
+                    <div class="hero-actions">
+                        <a href="#setup" class="btn btn-primary">Get Started</a>
+                        <a href="https://github.com/carrycooldude/EdgeAIApp-ExecuTorch" class="btn btn-secondary" target="_blank">View on GitHub</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="phone-mockup">
+                        <div class="phone-screen">
+                            <div class="app-interface">
+                                <div class="app-header">EdgeAI</div>
+                                <div class="chat-messages">
+                                    <div class="message user">Hello, how are you?</div>
+                                    <div class="message ai">Hello! I'm doing well, thank you for asking. I'm an AI assistant running on your Android device using real Llama3.2-1B model with ExecuTorch and Qualcomm QNN acceleration.</div>
+                                </div>
+                                <div class="input-area">
+                                    <input type="text" placeholder="Ask me anything..." disabled>
+                                    <button disabled>Send</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="overview" class="overview">
+            <div class="container">
+                <h2>🎯 What is EdgeAI?</h2>
+                <div class="overview-grid">
+                    <div class="overview-card">
+                        <div class="card-icon">🧠</div>
+                        <h3>Real AI Inference</h3>
+                        <p>Uses actual Llama3.2-1B model weights, not simulated responses. This is real AI running on your mobile device.</p>
+                    </div>
+                    <div class="overview-card">
+                        <div class="card-icon">⚡</div>
+                        <h3>Hardware Acceleration</h3>
+                        <p>Qualcomm HTP/DSP acceleration via QNN backend for fast, efficient inference on mobile devices.</p>
+                    </div>
+                    <div class="overview-card">
+                        <div class="card-icon">🔧</div>
+                        <h3>ExecuTorch Integration</h3>
+                        <p>Proper ExecuTorch runtime with .pte model loading and optimized execution pipeline.</p>
+                    </div>
+                    <div class="overview-card">
+                        <div class="card-icon">📱</div>
+                        <h3>Android Native</h3>
+                        <p>Built specifically for Android with native C++ implementation and JNI integration.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="features">
+            <div class="container">
+                <h2>✨ Key Features</h2>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <h3>🧠 Real Model Inference</h3>
+                        <ul>
+                            <li>Actual Llama3.2-1B weights</li>
+                            <li>ExecuTorch runtime execution</li>
+                            <li>Real tokenizer integration</li>
+                            <li>Proper model loading (.pte files)</li>
+                        </ul>
+                    </div>
+                    <div class="feature-item">
+                        <h3>⚡ Hardware Acceleration</h3>
+                        <ul>
+                            <li>Qualcomm HTP/DSP support</li>
+                            <li>QNN backend integration</li>
+                            <li>Context binary support (v79)</li>
+                            <li>SoC Model-69 compatibility</li>
+                        </ul>
+                    </div>
+                    <div class="feature-item">
+                        <h3>🔧 Developer Friendly</h3>
+                        <ul>
+                            <li>Clean API design</li>
+                            <li>Comprehensive documentation</li>
+                            <li>Step-by-step setup guides</li>
+                            <li>Open source codebase</li>
+                        </ul>
+                    </div>
+                    <div class="feature-item">
+                        <h3>📊 Performance Optimized</h3>
+                        <ul>
+                            <li>~50ms per token inference</li>
+                            <li>Optimized memory usage</li>
+                            <li>Power efficient design</li>
+                            <li>Mobile-optimized architecture</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="setup" class="setup">
+            <div class="container">
+                <h2>🚀 Quick Setup</h2>
+                <div class="setup-steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3>Prerequisites</h3>
+                            <ul>
+                                <li>Android Studio Arctic Fox or later</li>
+                                <li>Android NDK r25 or later</li>
+                                <li>Qualcomm device with HTP/DSP support</li>
+                                <li>ExecuTorch 0.7.0+</li>
+                                <li>QNN SDK v79+</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3>Installation</h3>
+                            <div class="code-block">
+                                <pre><code># Clone repository
+git clone https://github.com/carrycooldude/EdgeAIApp-ExecuTorch.git
+cd EdgeAIApp-ExecuTorch
+
+# Run setup script
+.\scripts\setup_real_executorch.ps1
+
+# Build and install
+.\gradlew assembleDebug
+adb install app\build\outputs\apk\debug\app-debug.apk</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3>Usage</h3>
+                            <ol>
+                                <li>Launch the app on your device</li>
+                                <li>App automatically initializes ExecuTorch + QNN</li>
+                                <li>Enter your prompt and tap "Generate"</li>
+                                <li>Enjoy real Llama3.2-1B responses!</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="docs" class="documentation">
+            <div class="container">
+                <h2>📚 Documentation</h2>
+                <div class="docs-grid">
+                    <div class="doc-category">
+                        <h3>🔧 Technical Documentation</h3>
+                        <ul>
+                            <li><a href="technical/REAL_EXECUTORCH_QNN_INTEGRATION.md">Real ExecuTorch + QNN Integration</a></li>
+                            <li><a href="technical/IMPLEMENTATION_ANALYSIS.md">Implementation Analysis</a></li>
+                            <li><a href="technical/PROJECT_STRUCTURE.md">Project Structure</a></li>
+                        </ul>
+                    </div>
+                    <div class="doc-category">
+                        <h3>⚙️ Setup Guides</h3>
+                        <ul>
+                            <li><a href="setup/QUALCOMM_AIHUB_SETUP.md">Qualcomm AI HUB Setup</a></li>
+                            <li><a href="setup/EXECUTORCH_SETUP.md">ExecuTorch Configuration</a></li>
+                            <li><a href="setup/ANDROID_SETUP.md">Android Development Setup</a></li>
+                        </ul>
+                    </div>
+                    <div class="doc-category">
+                        <h3>📋 Release Notes</h3>
+                        <ul>
+                            <li><a href="releases/RELEASE_NOTES_v1.4.0.md">v1.4.0 Release Notes</a></li>
+                            <li><a href="releases/RELEASE_NOTES_v1.3.0.md">v1.3.0 Release Notes</a></li>
+                            <li><a href="releases/RELEASE_NOTES_v1.2.0.md">v1.2.0 Release Notes</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="releases" class="releases">
+            <div class="container">
+                <h2>📦 Latest Release</h2>
+                <div class="release-card">
+                    <div class="release-header">
+                        <h3>v1.4.0 - Real ExecuTorch + QNN Integration</h3>
+                        <span class="release-date">October 16, 2025</span>
+                    </div>
+                    <div class="release-content">
+                        <p><strong>Major Release:</strong> This release transforms EdgeAI from a simulated implementation to a real ExecuTorch + QNN integration with actual Llama3.2-1B model inference.</p>
+                        <div class="release-features">
+                            <h4>Key Features:</h4>
+                            <ul>
+                                <li>✅ Real Llama3.2-1B model weights</li>
+                                <li>✅ ExecuTorch runtime integration</li>
+                                <li>✅ Hardware acceleration via QNN</li>
+                                <li>✅ Proper tokenizer integration</li>
+                                <li>✅ Improved project structure</li>
+                            </ul>
+                        </div>
+                        <div class="release-actions">
+                            <a href="releases/RELEASE_NOTES_v1.4.0.md" class="btn btn-primary">View Release Notes</a>
+                            <a href="https://github.com/carrycooldude/EdgeAIApp-ExecuTorch/releases/tag/v1.4.0" class="btn btn-secondary" target="_blank">Download Release</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>EdgeAI</h3>
+                    <p>Real Llama3.2-1B inference on Android with ExecuTorch + Qualcomm QNN backend.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Links</h3>
+                    <ul>
+                        <li><a href="https://github.com/carrycooldude/EdgeAIApp-ExecuTorch">GitHub Repository</a></li>
+                        <li><a href="https://github.com/carrycooldude/EdgeAIApp-ExecuTorch/issues">Report Issues</a></li>
+                        <li><a href="https://github.com/carrycooldude/EdgeAIApp-ExecuTorch/discussions">Discussions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Technologies</h3>
+                    <ul>
+                        <li><a href="https://github.com/pytorch/executorch">ExecuTorch</a></li>
+                        <li><a href="https://developer.qualcomm.com/software/ai-stack">Qualcomm AI Stack</a></li>
+                        <li><a href="https://github.com/meta-llama">Meta LLaMA</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 EdgeAI. Made with ❤️ for the AI community.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add scroll effect to header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>
