@@ -1,21 +1,11 @@
 # ninja log v5
-14	820	7814286912570086	CMakeFiles/edgeai_qnn.dir/qnn_manager.cpp.o	11556d7b216260cc
-2	1002	7814286914334545	CMakeFiles/edgeai_qnn.dir/qnn_infer.cpp.o	51be64597a3f8805
-49	1366	7814286917793854	CMakeFiles/edgeai_qnn.dir/real_qnn_inference.cpp.o	ec3837c9b2c734c5
-1366	1528	7814286919440943	C:/Users/rawat/AndroidStudioProjects/EdgeAI/app/build/intermediates/cxx/Debug/5u3hu282/obj/armeabi-v7a/libedgeai_qnn.so	c9c5fe2425077899
-0	14	0	clean	c4586a5fa164368a
-1	143	7814289347098900	build.ninja	792fa4f78b417489
-8	760	7814289356437607	CMakeFiles/edgeai_qnn.dir/qnn_manager.cpp.o	e7024baed88ebfb8
-1	891	7814289357715347	CMakeFiles/edgeai_qnn.dir/qnn_infer.cpp.o	a6977d6f33bf1039
-13	1117	7814289359947482	CMakeFiles/edgeai_qnn.dir/real_qnn_inference.cpp.o	539950c10fd897fd
-1117	1288	7814289361256338	C:/Users/rawat/AndroidStudioProjects/EdgeAI/app/build/intermediates/cxx/Debug/5u3hu282/obj/armeabi-v7a/libedgeai_qnn.so	1b83d0eba743a6
-0	14	0	clean	c4586a5fa164368a
-2	871	7814293122956270	CMakeFiles/edgeai_qnn.dir/qnn_manager.cpp.o	e7024baed88ebfb8
-8	977	7814293124001824	CMakeFiles/edgeai_qnn.dir/qnn_infer.cpp.o	a6977d6f33bf1039
-13	1203	7814293126235672	CMakeFiles/edgeai_qnn.dir/real_qnn_inference.cpp.o	539950c10fd897fd
-1203	1348	7814293127462000	C:/Users/rawat/AndroidStudioProjects/EdgeAI/app/build/intermediates/cxx/Debug/5u3hu282/obj/armeabi-v7a/libedgeai_qnn.so	1b83d0eba743a6
-0	14	0	clean	c4586a5fa164368a
 2	914	7814296339306965	CMakeFiles/edgeai_qnn.dir/qnn_manager.cpp.o	e7024baed88ebfb8
 10	1334	7814296343356581	CMakeFiles/edgeai_qnn.dir/qnn_infer.cpp.o	a6977d6f33bf1039
 87	1447	7814296344513162	CMakeFiles/edgeai_qnn.dir/real_qnn_inference.cpp.o	539950c10fd897fd
 1448	1966	7814296346292762	C:/Users/rawat/AndroidStudioProjects/EdgeAI/app/build/intermediates/cxx/Debug/5u3hu282/obj/armeabi-v7a/libedgeai_qnn.so	1b83d0eba743a6
+0	16	0	clean	c4586a5fa164368a
+1	162	7823048781200935	build.ninja	792fa4f78b417489
+7	737	7823048789659544	CMakeFiles/edgeai_qnn.dir/qnn_manager.cpp.o	e7024baed88ebfb8
+2	872	7823048790978907	CMakeFiles/edgeai_qnn.dir/qnn_infer.cpp.o	a6977d6f33bf1039
+12	1165	7823048793827441	CMakeFiles/edgeai_qnn.dir/real_qnn_inference.cpp.o	539950c10fd897fd
+1165	1365	7823048795527065	C:/Users/rawat/AndroidStudioProjects/EdgeAI/app/build/intermediates/cxx/Debug/5u3hu282/obj/armeabi-v7a/libedgeai_qnn.so	1b83d0eba743a6

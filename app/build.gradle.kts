@@ -13,8 +13,8 @@ android {
         applicationId = "com.example.edgeai"
         minSdk = 24
         targetSdk = 36
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = 3
+        versionName = "1.3.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         
@@ -41,11 +41,26 @@ android {
 
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
+            isShrinkResources = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            // Optimize for release
+            packaging {
+                jniLibs {
+                    useLegacyPackaging = false
+                }
+                resources {
+                    excludes += listOf(
+                        "**/consolidated.00.pth",
+                        "**/consolidated.*.pth",
+                        "**/*.bin",
+                        "**/*.safetensors"
+                    )
+                }
+            }
         }
         debug {
             isMinifyEnabled = false

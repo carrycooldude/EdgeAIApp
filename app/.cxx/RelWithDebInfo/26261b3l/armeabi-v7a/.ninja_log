@@ -1,11 +1,11 @@
 # ninja log v5
-5	769	7813866857694552	CMakeFiles/edgeai_qnn.dir/qnn_manager.cpp.o	d30f5891f35df658
-0	985	7813866859928425	CMakeFiles/edgeai_qnn.dir/qnn_infer.cpp.o	48c7856bb8e2fd5a
-13	1281	7813866862842341	CMakeFiles/edgeai_qnn.dir/real_qnn_inference.cpp.o	40402a7041678b95
-1281	1431	7813866864196649	C:/Users/rawat/AndroidStudioProjects/EdgeAI/app/build/intermediates/cxx/RelWithDebInfo/26261b3l/obj/armeabi-v7a/libedgeai_qnn.so	bfaae7a6e9f73184
-0	12	0	clean	c4586a5fa164368a
-1	124	7814388429065877	build.ninja	beccc915ab527782
 8	1278	7814388444891493	CMakeFiles/edgeai_qnn.dir/qnn_manager.cpp.o	db84059fe28c4c57
 2	1328	7814388445102113	CMakeFiles/edgeai_qnn.dir/qnn_infer.cpp.o	763b9e87e538d33b
 15	1474	7814388446833517	CMakeFiles/edgeai_qnn.dir/real_qnn_inference.cpp.o	74bd2bd9b67e3967
 1474	2304	7814388454131589	C:/Users/rawat/AndroidStudioProjects/EdgeAI/app/build/intermediates/cxx/RelWithDebInfo/26261b3l/obj/armeabi-v7a/libedgeai_qnn.so	a1b0df56c8f36885
+1	13	0	clean	c4586a5fa164368a
+0	142	7823067061089872	build.ninja	beccc915ab527782
+1	1431	7823067076354523	CMakeFiles/edgeai_qnn.dir/qnn_manager.cpp.o	db84059fe28c4c57
+19	1674	7823067078817987	CMakeFiles/edgeai_qnn.dir/qnn_infer.cpp.o	763b9e87e538d33b
+50	2212	7823067084193295	CMakeFiles/edgeai_qnn.dir/real_qnn_inference.cpp.o	74bd2bd9b67e3967
+2212	2373	7823067085628940	C:/Users/rawat/AndroidStudioProjects/EdgeAI/app/build/intermediates/cxx/RelWithDebInfo/26261b3l/obj/armeabi-v7a/libedgeai_qnn.so	a1b0df56c8f36885
