@@ -4,12 +4,30 @@ on:
   push:
     branches: [ main ]
     paths:
-      - 'docs/**'
+      - '_config.yml'
+      - '_layouts/**'
+      - '_includes/**'
+      - '_sass/**'
+      - 'assets/**'
+      - 'technical/**'
+      - 'setup/**'
+      - 'releases/**'
+      - 'index.md'
+      - 'Gemfile'
       - '.github/workflows/docs.yml'
   pull_request:
     branches: [ main ]
     paths:
-      - 'docs/**'
+      - '_config.yml'
+      - '_layouts/**'
+      - '_includes/**'
+      - '_sass/**'
+      - 'assets/**'
+      - 'technical/**'
+      - 'setup/**'
+      - 'releases/**'
+      - 'index.md'
+      - 'Gemfile'
 
 permissions:
   contents: read
@@ -32,20 +50,17 @@ jobs:
         with:
           ruby-version: '3.1'
           bundler-cache: true
-          working-directory: ./docs
         
       - name: Setup Pages
         uses: actions/configure-pages@v4
         
       - name: Clean and Install Dependencies
         run: |
-          cd docs
           rm -f Gemfile.lock
           bundle install --clean
           
       - name: Build with Jekyll
         run: |
-          cd docs
           bundle exec jekyll build
         env:
           JEKYLL_ENV: production
@@ -53,7 +68,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './docs/_site'
+          path: './_site'
 
   deploy:
     environment:
