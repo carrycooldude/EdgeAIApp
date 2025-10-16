@@ -1,146 +1,234 @@
-# GitHub Pages Configuration for EdgeAI Documentation
+# 🚀 GitHub Pages Setup Guide for EdgeAI Documentation
 
-This directory contains the documentation website for EdgeAI, hosted on GitHub Pages.
+This guide will help you set up GitHub Pages to host the EdgeAI documentation website.
 
-## 🌐 Website URL
+## 📋 Prerequisites
 
-The documentation website is available at:
-**https://carrycooldude.github.io/EdgeAIApp-ExecuTorch/**
+- GitHub repository: `carrycooldude/EdgeAIApp-ExecuTorch`
+- Documentation files in the `docs/` directory
+- GitHub Actions workflow for deployment
 
-## 📁 Directory Structure
+## 🌐 Step-by-Step Setup
+
+### 1. Enable GitHub Pages
+
+1. **Go to Repository Settings**
+   - Navigate to your GitHub repository
+   - Click on **Settings** tab
+   - Scroll down to **Pages** section
+
+2. **Configure Source**
+   - **Source**: Select "GitHub Actions"
+   - This will use the workflow we created for deployment
+
+3. **Save Configuration**
+   - Click **Save** to enable GitHub Pages
+
+### 2. Verify Documentation Files
+
+Ensure these files exist in your repository:
 
 ```
 docs/
-├── index.html                    # Main website homepage
-├── styles.css                    # Website styling
-├── README.md                     # Documentation overview
-├── technical/                    # Technical documentation
+├── index.html                    ✅ Main homepage
+├── styles.css                    ✅ Website styling
+├── README.md                     ✅ Documentation overview
+├── GITHUB_PAGES_SETUP.md         ✅ This setup guide
+├── technical/                    ✅ Technical docs
 │   ├── REAL_EXECUTORCH_QNN_INTEGRATION.md
 │   ├── IMPLEMENTATION_ANALYSIS.md
 │   └── PROJECT_STRUCTURE.md
-├── setup/                        # Setup guides
-│   ├── QUALCOMM_AIHUB_SETUP.md
-│   ├── EXECUTORCH_SETUP.md
-│   └── ANDROID_SETUP.md
-└── releases/                     # Release notes
-    ├── RELEASE_NOTES_v1.4.0.md
-    ├── RELEASE_NOTES_v1.3.0.md
-    └── RELEASE_NOTES_v1.2.0.md
+├── setup/                        ✅ Setup guides
+│   └── QUALCOMM_AIHUB_SETUP.md
+└── releases/                     ✅ Release notes
+    └── RELEASE_NOTES_v1.4.0.md
 ```
 
-## 🚀 GitHub Pages Setup
+### 3. Trigger Deployment
 
-To enable GitHub Pages for this repository:
+1. **Push Changes**
+   ```bash
+   git add .
+   git commit -m "docs: Add GitHub Pages documentation website"
+   git push origin main
+   ```
 
-1. Go to **Settings** → **Pages**
-2. Select **Source**: Deploy from a branch
-3. Select **Branch**: main
-4. Select **Folder**: /docs
-5. Click **Save**
+2. **Check Actions**
+   - Go to **Actions** tab in your repository
+   - Look for "Deploy Documentation to GitHub Pages" workflow
+   - Wait for it to complete successfully
 
-## 🔧 Local Development
+### 4. Access Your Website
 
-To preview the website locally:
+Once deployment is complete, your documentation website will be available at:
+
+**🌐 https://carrycooldude.github.io/EdgeAIApp-ExecuTorch/**
+
+## 🔧 Configuration Details
+
+### GitHub Pages Settings
+
+| Setting | Value | Description |
+|---------|-------|-------------|
+| **Source** | GitHub Actions | Uses workflow for deployment |
+| **Branch** | main | Source branch for content |
+| **Folder** | /docs | Documentation directory |
+| **Custom Domain** | (Optional) | Your own domain name |
+
+### Workflow Configuration
+
+The GitHub Actions workflow (`docs.yml`) includes:
+
+- **Trigger**: Pushes to main branch affecting docs/
+- **Permissions**: Pages write access
+- **Build Process**: Validates and prepares documentation
+- **Deployment**: Uploads to GitHub Pages
+
+## 🎨 Website Features
+
+### Design Elements
+- **Theme**: Blue gradient (#667eea to #764ba2)
+- **Layout**: Responsive grid system
+- **Typography**: System fonts for performance
+- **Navigation**: Smooth scrolling between sections
+
+### Content Sections
+- **Hero Section**: Project overview with phone mockup
+- **Features**: Key capabilities and benefits
+- **Setup Guide**: Step-by-step installation
+- **Documentation**: Technical docs and guides
+- **Releases**: Latest version information
+
+### Mobile Optimization
+- **Responsive Design**: Works on all screen sizes
+- **Touch Navigation**: Mobile-friendly interface
+- **Fast Loading**: Optimized CSS and images
+- **Accessibility**: Proper semantic HTML
+
+## 🔄 Updating Documentation
+
+### Automatic Updates
+
+The website automatically updates when you:
+
+1. **Push changes** to the main branch
+2. **Modify files** in the `docs/` directory
+3. **Update documentation** content
+
+### Manual Updates
+
+To update specific content:
+
+1. **Edit files** in the appropriate directory
+2. **Test locally** using a web server
+3. **Commit changes** to main branch
+4. **GitHub Pages** rebuilds automatically
+
+### Local Testing
+
+Test changes locally before pushing:
 
 ```bash
 # Navigate to docs directory
 cd docs
 
-# Start a local server (Python 3)
+# Start local server
 python -m http.server 8000
 
 # Or use Node.js
 npx serve .
 
-# Or use PHP
-php -S localhost:8000
+# Visit http://localhost:8000
 ```
 
-Then visit: http://localhost:8000
+## 📊 Analytics and Monitoring
 
-## 📝 Content Guidelines
+### GitHub Pages Analytics
 
-### Writing Documentation
-- Use clear, concise language
-- Include code examples where appropriate
-- Add screenshots for UI elements
-- Keep documentation up to date
+Access analytics in **Settings** → **Pages**:
 
-### File Naming
-- Use descriptive filenames
-- Use hyphens instead of spaces
-- Include version numbers for releases
-- Use lowercase for consistency
+- **Page Views**: Traffic statistics
+- **Referrers**: Where visitors come from
+- **Popular Content**: Most viewed pages
+- **Geographic Data**: Visitor locations
 
-### Markdown Formatting
-- Use proper heading hierarchy (H1 → H2 → H3)
-- Include table of contents for long documents
-- Use code blocks with syntax highlighting
-- Add links to related documentation
+### Performance Monitoring
 
-## 🎨 Styling Guidelines
+- **Load Time**: GitHub Pages CDN optimization
+- **Uptime**: GitHub infrastructure reliability
+- **Mobile Performance**: Responsive design testing
 
-The website uses a custom CSS framework with:
-- **Color Scheme**: Blue gradient theme (#667eea to #764ba2)
-- **Typography**: System fonts for better performance
-- **Layout**: Responsive grid system
-- **Components**: Cards, buttons, code blocks, navigation
+## 🛠️ Customization
 
-## 🔄 Updating Documentation
+### Styling Changes
 
-1. **Edit files** in the appropriate directory
-2. **Test locally** using a local server
-3. **Commit changes** to the main branch
-4. **GitHub Pages** will automatically rebuild
+Edit `docs/styles.css` to customize:
 
-## 📊 Analytics
+- **Colors**: Update gradient theme
+- **Typography**: Change font families
+- **Layout**: Modify grid systems
+- **Components**: Update button styles
 
-GitHub Pages provides basic analytics:
-- Page views
-- Referrer information
-- Popular content
+### Content Updates
 
-Access analytics in **Settings** → **Pages** → **Analytics**
+Modify `docs/index.html` for:
 
-## 🛠️ Custom Domain (Optional)
+- **Hero Section**: Update project description
+- **Features**: Add new capabilities
+- **Navigation**: Update menu items
+- **Footer**: Change contact information
 
-To use a custom domain:
+### Adding New Pages
 
-1. Add a `CNAME` file with your domain
-2. Configure DNS settings
-3. Enable HTTPS in GitHub Pages settings
+1. **Create new files** in appropriate directories
+2. **Update navigation** in index.html
+3. **Add links** to related documentation
+4. **Commit and push** changes
 
-## 📱 Mobile Optimization
+## 🚨 Troubleshooting
 
-The website is fully responsive and optimized for:
-- **Desktop**: Full layout with sidebar navigation
-- **Tablet**: Adapted grid layouts
-- **Mobile**: Stacked layout with touch-friendly navigation
+### Common Issues
 
-## 🔍 SEO Optimization
+| Issue | Solution |
+|-------|----------|
+| **Website not loading** | Check GitHub Pages settings |
+| **Styling not applied** | Verify CSS file path |
+| **Links broken** | Check file paths and names |
+| **Mobile layout issues** | Test responsive design |
 
-- **Meta tags**: Description, keywords, Open Graph
-- **Structured data**: JSON-LD for better search results
-- **Sitemap**: Automatic generation by GitHub Pages
-- **Performance**: Optimized images and CSS
+### Debug Steps
 
-## 🚀 Deployment
+1. **Check Actions**: Look for failed workflows
+2. **Validate HTML**: Use online validators
+3. **Test Locally**: Verify before pushing
+4. **Check Permissions**: Ensure Pages access
 
-GitHub Pages automatically deploys when:
-- Changes are pushed to the main branch
-- Documentation files are updated
-- Configuration changes are made
+### Support Resources
 
-Deployment typically takes 1-2 minutes.
+- **GitHub Pages Docs**: [docs.github.com/pages](https://docs.github.com/pages)
+- **GitHub Actions**: [docs.github.com/actions](https://docs.github.com/actions)
+- **Repository Issues**: Use GitHub Issues for bugs
+
+## 🎯 Next Steps
+
+After setting up GitHub Pages:
+
+1. **Share the URL** with users and contributors
+2. **Add to README** with website link
+3. **Update documentation** regularly
+4. **Monitor analytics** for insights
+5. **Gather feedback** from users
 
 ## 📞 Support
 
-For documentation website issues:
-- Check GitHub Pages status
-- Review build logs in Actions
-- Test locally before pushing
-- Use GitHub Issues for bugs
+For GitHub Pages issues:
+
+- 📧 **Email**: carrycooldude@example.com
+- 🐛 **Issues**: [GitHub Issues](https://github.com/carrycooldude/EdgeAIApp-ExecuTorch/issues)
+- 💬 **Discussions**: [GitHub Discussions](https://github.com/carrycooldude/EdgeAIApp-ExecuTorch/discussions)
 
 ---
 
-**This documentation website showcases the professional quality of the EdgeAI project! 🌟**
+**Your professional documentation website is now ready! 🌟**
+
+**Website URL**: https://carrycooldude.github.io/EdgeAIApp-ExecuTorch/
