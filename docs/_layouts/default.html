@@ -5,27 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
     <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
-    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
     <link rel="icon" type="image/x-icon" href="{{ '/favicon.ico' | relative_url }}">
     {% seo %}
 </head>
 <body>
-    <header class="header">
-        <div class="container">
-            <div class="logo">
-                <a href="{{ '/' | relative_url }}">
-                    <h1>🧠 EdgeAI</h1>
-                    <p>Real ExecuTorch + QNN Integration</p>
-                </a>
-            </div>
-            <nav class="nav">
-                <a href="{{ '/' | relative_url }}">Home</a>
-                <a href="{{ '/technical/' | relative_url }}">Technical</a>
-                <a href="{{ '/setup/' | relative_url }}">Setup</a>
-                <a href="{{ '/releases/' | relative_url }}">Releases</a>
-            </nav>
-        </div>
-    </header>
+    {% include header.html %}
 
     <main class="main">
         <div class="container">
@@ -44,35 +29,7 @@
         </div>
     </main>
 
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>EdgeAI</h3>
-                    <p>Real Llama3.2-1B inference on Android with ExecuTorch + Qualcomm QNN backend.</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Links</h3>
-                    <ul>
-                        <li><a href="https://github.com/carrycooldude/EdgeAIApp-ExecuTorch">GitHub Repository</a></li>
-                        <li><a href="https://github.com/carrycooldude/EdgeAIApp-ExecuTorch/issues">Report Issues</a></li>
-                        <li><a href="https://github.com/carrycooldude/EdgeAIApp-ExecuTorch/discussions">Discussions</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Technologies</h3>
-                    <ul>
-                        <li><a href="https://github.com/pytorch/executorch">ExecuTorch</a></li>
-                        <li><a href="https://developer.qualcomm.com/software/ai-stack">Qualcomm AI Stack</a></li>
-                        <li><a href="https://github.com/meta-llama">Meta LLaMA</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 EdgeAI. Made with ❤️ for the AI community.</p>
-            </div>
-        </div>
-    </footer>
+    {% include footer.html %}
 
     <script>
         // Smooth scrolling for navigation links
