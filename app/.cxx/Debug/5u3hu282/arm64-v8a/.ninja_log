@@ -1,11 +1,15 @@
 # ninja log v5
-1	847	7814296317916486	CMakeFiles/edgeai_qnn.dir/qnn_manager.cpp.o	1ffe6f84face4fcd
-11	1167	7814296320670880	CMakeFiles/edgeai_qnn.dir/qnn_infer.cpp.o	cdacbef821ac9459
-19	1280	7814296322312681	CMakeFiles/edgeai_qnn.dir/real_qnn_inference.cpp.o	b1a4d9f1a4be01bc
-1280	1418	7814296323477708	C:/Users/rawat/AndroidStudioProjects/EdgeAI/app/build/intermediates/cxx/Debug/5u3hu282/obj/arm64-v8a/libedgeai_qnn.so	59f852f30e0cd289
-0	40	0	clean	c4586a5fa164368a
-1	123	7823048758250239	build.ninja	fda71ae0d742db02
-19	816	7823048768216390	CMakeFiles/edgeai_qnn.dir/qnn_manager.cpp.o	1ffe6f84face4fcd
-1	979	7823048769245471	CMakeFiles/edgeai_qnn.dir/qnn_infer.cpp.o	cdacbef821ac9459
-29	1697	7823048776995321	CMakeFiles/edgeai_qnn.dir/real_qnn_inference.cpp.o	b1a4d9f1a4be01bc
+29	1010	7823105493936999	CMakeFiles/edgeai_qnn.dir/real_qnn_inference.cpp.o	116621f9701631f6
+20	824	7823105492095493	CMakeFiles/edgeai_qnn.dir/qnn_infer.cpp.o	7be84c88d32c2c2a
+5	733	7823105491185284	CMakeFiles/edgeai_qnn.dir/qnn_manager.cpp.o	5e565b81edb727a9
 1698	1938	7823048779137913	C:/Users/rawat/AndroidStudioProjects/EdgeAI/app/build/intermediates/cxx/Debug/5u3hu282/obj/arm64-v8a/libedgeai_qnn.so	59f852f30e0cd289
+0	40	0	clean	c4586a5fa164368a
+1	123	7823108734899386	build.ninja	fda71ae0d742db02
+1	1685	7823108752930706	CMakeFiles/edgeai_qnn.dir/improved_llama_inference.cpp.o	3fed9d6815f52717
+1687	2013	7823108755773428	C:/Users/rawat/AndroidStudioProjects/EdgeAI/app/build/intermediates/cxx/Debug/5u3hu282/obj/arm64-v8a/libedgeai_qnn.so	a90b093b3ea521bc
+1	16	0	clean	c4586a5fa164368a
+8	681	7823133031291252	CMakeFiles/edgeai_qnn.dir/qnn_manager.cpp.o	5e565b81edb727a9
+2	979	7823133033703099	CMakeFiles/edgeai_qnn.dir/qnn_infer.cpp.o	7be84c88d32c2c2a
+17	1394	7823133038337977	CMakeFiles/edgeai_qnn.dir/real_qnn_inference.cpp.o	116621f9701631f6
+12	1447	7823133038889104	CMakeFiles/edgeai_qnn.dir/improved_llama_inference.cpp.o	3fed9d6815f52717
+1447	1646	7823133040653817	C:/Users/rawat/AndroidStudioProjects/EdgeAI/app/build/intermediates/cxx/Debug/5u3hu282/obj/arm64-v8a/libedgeai_qnn.so	a90b093b3ea521bc

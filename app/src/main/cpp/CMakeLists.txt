@@ -9,6 +9,14 @@ set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fPIC")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DANDROID_SAMSUNG_S25_ULTRA_COMPAT")
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -DANDROID_SAMSUNG_S25_ULTRA_COMPAT")
 
+# ExecuTorch flags for v79 (based on official Qualcomm AI HUB Apps)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DEXECUTORCH_ENABLE_QNN=1")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DEXECUTORCH_ENABLE_QUALCOMM=1")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DEXECUTORCH_CONTEXT_BINARIES_V79=1")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DEXECUTORCH_SOC_MODEL_69=1")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DEXECUTORCH_HEXAGON_V79=1")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DEXECUTORCH_ARCHITECTURE_AARCH64_ANDROID=1")
+
 # Set alignment for 16 KB page size
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wl,-z,max-page-size=16384")
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wl,-z,max-page-size=16384")
@@ -18,10 +26,11 @@ find_library(log-lib log)
 find_library(android-lib android)
 
 # Define your native library
-add_library(edgeai_qnn SHARED 
+add_library(edgeai_qnn SHARED
     qnn_infer.cpp
     qnn_manager.cpp
     real_qnn_inference.cpp
+    improved_llama_inference.cpp
 )
 
 # Set properties for 16 KB page size compatibility

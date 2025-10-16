@@ -22,7 +22,7 @@ android {
         
         // Samsung S25 Ultra compatibility
         ndk {
-            abiFilters += listOf("arm64-v8a", "armeabi-v7a")
+            abiFilters += listOf("arm64-v8a") // aarch64-android for v79 context binaries
         }
         
         // Samsung S25 Ultra page size compatibility
@@ -126,13 +126,13 @@ publishing {
             version = "1.2.0"
             
             // Publish the APK as the main artifact
-            artifact("$buildDir/outputs/apk/release/app-release.apk") {
+            artifact("${layout.buildDirectory.get()}/outputs/apk/release/app-release.apk") {
                 classifier = "apk"
                 extension = "apk"
             }
             
             // Publish source code
-            artifact("$buildDir/outputs/sources/release") {
+            artifact("${layout.buildDirectory.get()}/outputs/sources/release") {
                 classifier = "sources"
                 extension = "jar"
             }
@@ -172,8 +172,8 @@ publishing {
             name = "GitHubPackages"
             url = uri("https://maven.pkg.github.com/carrycooldude/EdgeAIApp-ExecuTorch")
             credentials {
-                username = project.findProperty("gpr.user") ?: System.getenv("GITHUB_ACTOR")
-                password = project.findProperty("gpr.key") ?: System.getenv("GITHUB_TOKEN")
+                username = project.findProperty("gpr.user") as String? ?: System.getenv("GITHUB_ACTOR")
+                password = project.findProperty("gpr.key") as String? ?: System.getenv("GITHUB_TOKEN")
             }
         }
     }

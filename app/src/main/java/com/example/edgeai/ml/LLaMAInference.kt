@@ -25,6 +25,57 @@ import org.json.JSONArray
  */
 class LLaMAInference(private val context: Context) {
 
+    // JNI declarations for Real ExecuTorch integration with Qualcomm AI HUB
+    external fun nativeInitializeRealExecuTorch(
+        modelPath: String,
+        tokenizerPath: String,
+        contextBinariesPath: String
+    ): Boolean
+
+    external fun nativeGenerateRealResponse(
+        prompt: String,
+        maxTokens: Int,
+        temperature: Float
+    ): String
+
+    external fun nativeIsRealExecuTorchInitialized(): Boolean
+    
+    external fun nativeGetRealModelInfo(): String
+    
+    // JNI declarations for QNN v79 integration
+    external fun nativeInitializeQNNv79(
+        modelPath: String,
+        tokenizerPath: String,
+        contextBinariesPath: String
+    ): Boolean
+
+    external fun nativeGenerateQNNv79Response(
+        prompt: String,
+        maxTokens: Int,
+        temperature: Float
+    ): String
+
+    external fun nativeIsQNNv79Initialized(): Boolean
+    
+    external fun nativeGetQNNv79ModelInfo(): String
+    
+    // JNI declarations for Improved LLaMA inference
+    external fun nativeInitializeImprovedLLaMA(
+        modelPath: String,
+        tokenizerPath: String,
+        contextBinariesPath: String
+    ): Boolean
+
+    external fun nativeGenerateImprovedResponse(
+        prompt: String,
+        maxTokens: Int,
+        temperature: Float
+    ): String
+
+    external fun nativeIsImprovedLLaMAInitialized(): Boolean
+    
+    external fun nativeGetImprovedModelInfo(): String
+
     companion object {
         private const val TAG = "LLaMAInference"
         
@@ -58,7 +109,7 @@ class LLaMAInference(private val context: Context) {
         
         init {
             try {
-                System.loadLibrary("edgeai")
+                System.loadLibrary("edgeai_qnn")
                 nativeLibraryLoaded = true
                 Log.i(TAG, "✅ Native library loaded successfully")
             } catch (e: UnsatisfiedLinkError) {
@@ -2192,18 +2243,18 @@ class LLaMAInference(private val context: Context) {
                 // Fix spacing issues
                 val response = fixSpacing(rawResponse)
                 Log.i(TAG, "✅ Fixed spacing: '$response'")
-                return response
-            }
-            
+            return response
+        }
+        
             // Fallback to simple word-based decoding
             Log.w(TAG, "⚠️ Using fallback decoding")
-            val words = mutableListOf<String>()
-            
-            for (token in tokens) {
+        val words = mutableListOf<String>()
+        
+        for (token in tokens) {
                 if (token == BOS_TOKEN) continue // Skip BOS token
                 if (token == EOS_TOKEN) break // Stop at EOS token
-                
-                val word = reverseTokenizer[token] ?: "<unk>"
+            
+            val word = reverseTokenizer[token] ?: "<unk>"
                 Log.d(TAG, "🔍 Fallback token $token -> '$word'")
                 
                 if (word != "<unk>" && word != "<pad>" && !word.startsWith("token")) {
@@ -2297,11 +2348,11 @@ class LLaMAInference(private val context: Context) {
         }
         
         fun decode(tokens: List<Int>): String {
-            val words = mutableListOf<String>()
+        val words = mutableListOf<String>()
             
             // Log.d("OfficialTokenizer", "🔍 Decoding tokens: $tokens")
-            
-            for (token in tokens) {
+        
+        for (token in tokens) {
                 if (token == 128000) continue // Skip <|begin_of_text|>
                 if (token == 128009) break // Stop at <|eot_id|>
                 
