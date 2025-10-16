@@ -27,28 +27,27 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.1'
+          bundler-cache: true
+          working-directory: ./docs
+        
       - name: Setup Pages
         uses: actions/configure-pages@v4
         
-      - name: Build Documentation
+      - name: Build with Jekyll
         run: |
-          echo "Building documentation website..."
-          # Create a simple build process
           cd docs
-          echo "Documentation files:"
-          ls -la
-          
-          # Validate HTML
-          if command -v tidy &> /dev/null; then
-            tidy -q -e index.html || true
-          fi
-          
-          echo "Documentation build complete!"
+          bundle exec jekyll build --baseurl "${{ steps.deployment.outputs.page_url }}"
+        env:
+          JEKYLL_ENV: production
         
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './docs'
+          path: './docs/_site'
 
   deploy:
     environment:
