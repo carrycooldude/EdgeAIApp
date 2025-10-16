@@ -1,0 +1,20 @@
+# Local configuration file for GitHub Package Publishing
+# Copy this file and rename to local.properties
+# Add your actual credentials (DO NOT commit this file to git)
+
+# GitHub Package Repository credentials
+gpr.user=your-github-username
+gpr.key=your-github-personal-access-token
+
+# Signing configuration (optional, for signed releases)
+signing.keyId=your-signing-key-id
+signing.key=your-signing-key
+signing.password=your-signing-password
+
+# Instructions:
+# 1. Go to GitHub Settings > Developer settings > Personal access tokens
+# 2. Generate a new token with 'packages:write' permission
+# 3. Replace 'your-github-username' with your GitHub username
+# 4. Replace 'your-github-personal-access-token' with your generated token
+# 5. Save this file as 'local.properties' (not 'local.properties.template')
+# 6. Add 'local.properties' to your .gitignore file
