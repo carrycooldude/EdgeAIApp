@@ -1,0 +1,40 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="200" height="200" fill="#f8f9fa"/>
+  
+  <!-- React-like atom structure -->
+  <g stroke="#4A90E2" stroke-width="3" fill="none" opacity="0.8">
+    <!-- Central nucleus -->
+    <circle cx="100" cy="100" r="8" fill="#4A90E2"/>
+    
+    <!-- Orbital rings -->
+    <ellipse cx="100" cy="100" rx="40" ry="20" transform="rotate(0 100 100)"/>
+    <ellipse cx="100" cy="100" rx="40" ry="20" transform="rotate(60 100 100)"/>
+    <ellipse cx="100" cy="100" rx="40" ry="20" transform="rotate(120 100 100)"/>
+    
+    <!-- Electrons -->
+    <circle cx="140" cy="100" r="4" fill="#7BB3F0"/>
+    <circle cx="100" cy="60" r="4" fill="#7BB3F0"/>
+    <circle cx="60" cy="100" r="4" fill="#7BB3F0"/>
+    <circle cx="100" cy="140" r="4" fill="#7BB3F0"/>
+    <circle cx="130" cy="70" r="4" fill="#7BB3F0"/>
+    <circle cx="70" cy="130" r="4" fill="#7BB3F0"/>
+  </g>
+  
+  <!-- AI processing elements -->
+  <g transform="translate(50, 50)">
+    <rect x="0" y="0" width="100" height="60" rx="8" fill="#E3F2FD" stroke="#4A90E2" stroke-width="2"/>
+    <rect x="10" y="10" width="80" height="8" rx="4" fill="#4A90E2"/>
+    <rect x="10" y="25" width="60" height="6" rx="3" fill="#7BB3F0"/>
+    <rect x="10" y="35" width="70" height="6" rx="3" fill="#7BB3F0"/>
+    <rect x="10" y="45" width="50" height="6" rx="3" fill="#7BB3F0"/>
+  </g>
+  
+  <!-- Processing indicators -->
+  <g fill="#FFD700" opacity="0.9">
+    <circle cx="30" cy="30" r="2"/>
+    <circle cx="170" cy="30" r="2"/>
+    <circle cx="30" cy="170" r="2"/>
+    <circle cx="170" cy="170" r="2"/>
+  </g>
+</svg>

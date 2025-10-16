@@ -11,32 +11,32 @@ type FeatureItem = {
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'Easy to Use',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    title: 'Real AI Inference',
+    Svg: require('@site/static/img/edgeai-mountain.svg').default,
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        EdgeAI runs actual Llama3.2-1B model inference on your Android device,
+        powered by ExecuTorch and Qualcomm QNN acceleration.
       </>
     ),
   },
   {
-    title: 'Focus on What Matters',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    title: 'Hardware Accelerated',
+    Svg: require('@site/static/img/edgeai-tree.svg').default,
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        Leverage Qualcomm's AI Engine Direct with v79 context binaries
+        for optimal performance on Snapdragon processors.
       </>
     ),
   },
   {
-    title: 'Powered by React',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    title: 'On-Device Processing',
+    Svg: require('@site/static/img/edgeai-react.svg').default,
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        Process AI requests locally without internet connectivity,
+        ensuring privacy and reducing latency for better user experience.
       </>
     ),
   },

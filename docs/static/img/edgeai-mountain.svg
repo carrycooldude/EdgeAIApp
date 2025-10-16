@@ -1,0 +1,26 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="200" height="200" fill="#f8f9fa"/>
+  
+  <!-- Mountain/Peak representing AI -->
+  <path d="M50 150 L100 50 L150 150 Z" fill="#4A90E2" opacity="0.8"/>
+  <path d="M60 150 L100 70 L140 150 Z" fill="#2E5BBA" opacity="0.6"/>
+  
+  <!-- Circuit pattern overlay -->
+  <g stroke="#7BB3F0" stroke-width="2" fill="none" opacity="0.7">
+    <path d="M80 100 L120 100"/>
+    <path d="M100 80 L100 120"/>
+    <circle cx="80" cy="100" r="3" fill="#7BB3F0"/>
+    <circle cx="120" cy="100" r="3" fill="#7BB3F0"/>
+    <circle cx="100" cy="80" r="3" fill="#7BB3F0"/>
+    <circle cx="100" cy="120" r="3" fill="#7BB3F0"/>
+  </g>
+  
+  <!-- AI Brain icon -->
+  <g transform="translate(85, 85)">
+    <ellipse cx="15" cy="15" rx="12" ry="8" fill="#FFD700" opacity="0.8"/>
+    <path d="M8 15 Q15 8 22 15 Q15 22 8 15" fill="#FF8C00"/>
+    <circle cx="12" cy="12" r="2" fill="white"/>
+    <circle cx="18" cy="12" r="2" fill="white"/>
+  </g>
+</svg>
