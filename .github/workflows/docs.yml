@@ -30,13 +30,19 @@ jobs:
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.1'
+          ruby-version: '2.7'
           bundler-cache: true
           working-directory: ./docs
         
       - name: Setup Pages
         uses: actions/configure-pages@v4
         
+      - name: Clean and Install Dependencies
+        run: |
+          cd docs
+          rm -f Gemfile.lock
+          bundle install --clean
+          
       - name: Build with Jekyll
         run: |
           cd docs
