@@ -1,49 +1,45 @@
 <svg width="200" height="60" viewBox="0 0 200 60" fill="none" xmlns="http://www.w3.org/2000/svg">
   <!-- Background -->
-  <rect width="200" height="60" fill="#1a1a2e"/>
+  <rect width="200" height="60" fill="#2a2a2a"/>
   
-  <!-- Gradients -->
-  <defs>
-    <linearGradient id="logoGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#4A90E2;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#2E5BBA;stop-opacity:1" />
-    </linearGradient>
-    <radialGradient id="flameGradient" cx="50%" cy="40%" r="60%">
-      <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" />
-      <stop offset="70%" style="stop-color:#FF8C00;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#FF4500;stop-opacity:1" />
-    </radialGradient>
-  </defs>
-  
-  <!-- Logo Icon (Left Side) -->
+  <!-- Green alligator-like creature -->
   <g transform="translate(10, 10)">
-    <!-- Background square with rounded corners -->
-    <rect width="40" height="40" rx="8" fill="url(#logoGradient)"/>
+    <!-- Body -->
+    <ellipse cx="20" cy="20" rx="18" ry="12" fill="#32CD32"/>
     
-    <!-- Torch base -->
-    <rect x="18" y="26" width="4" height="10" fill="#4A90E2"/>
+    <!-- Head -->
+    <ellipse cx="20" cy="15" rx="12" ry="8" fill="#32CD32"/>
     
-    <!-- Torch flame -->
-    <ellipse cx="20" cy="24" rx="3" ry="4" fill="url(#flameGradient)"/>
+    <!-- Eyes -->
+    <path d="M15 12 Q16 10 17 12" stroke="black" stroke-width="1.5" fill="none"/>
+    <path d="M23 12 Q24 10 25 12" stroke="black" stroke-width="1.5" fill="none"/>
     
-    <!-- Circuit branches -->
-    <!-- Left branch -->
-    <path d="M12 20 Q10 18 8 20" stroke="#4A90E2" stroke-width="1.5" fill="none"/>
-    <circle cx="8" cy="20" r="1.5" fill="#7BB3F0"/>
-    <circle cx="10" cy="19" r="1" fill="#7BB3F0"/>
+    <!-- Mouth with teeth -->
+    <path d="M12 18 Q20 22 28 18" stroke="black" stroke-width="1.5" fill="none"/>
+    <path d="M14 18 L15 20 L16 18" stroke="black" stroke-width="1" fill="white"/>
+    <path d="M18 18 L19 20 L20 18" stroke="black" stroke-width="1" fill="white"/>
+    <path d="M22 18 L23 20 L24 18" stroke="black" stroke-width="1" fill="white"/>
+    <path d="M26 18 L27 20 L28 18" stroke="black" stroke-width="1" fill="white"/>
     
-    <!-- Right branch -->
-    <path d="M28 20 Q30 18 32 20" stroke="#4A90E2" stroke-width="1.5" fill="none"/>
-    <circle cx="32" cy="20" r="1.5" fill="#7BB3F0"/>
-    <circle cx="30" cy="19" r="1" fill="#7BB3F0"/>
+    <!-- Scales on back -->
+    <circle cx="20" cy="8" r="1.5" fill="#228B22"/>
+    <circle cx="16" cy="10" r="1" fill="#228B22"/>
+    <circle cx="24" cy="10" r="1" fill="#228B22"/>
     
-    <!-- Additional circuit nodes -->
-    <circle cx="14" cy="21" r="0.8" fill="#7BB3F0"/>
-    <circle cx="26" cy="21" r="0.8" fill="#7BB3F0"/>
+    <!-- Limbs -->
+    <ellipse cx="12" cy="25" rx="3" ry="5" fill="#32CD32"/>
+    <ellipse cx="28" cy="25" rx="3" ry="5" fill="#32CD32"/>
+    
+    <!-- Yellow notepad -->
+    <rect x="8" y="28" width="12" height="8" rx="1" fill="#FFD700" stroke="#DAA520" stroke-width="0.5"/>
+    <line x1="9" y1="30" x2="19" y2="30" stroke="#DAA520" stroke-width="0.3"/>
+    <line x1="9" y1="31.5" x2="19" y2="31.5" stroke="#DAA520" stroke-width="0.3"/>
+    <line x1="9" y1="33" x2="19" y2="33" stroke="#DAA520" stroke-width="0.3"/>
+    <line x1="9" y1="34.5" x2="19" y2="34.5" stroke="#DAA520" stroke-width="0.3"/>
   </g>
   
-  <!-- EdgeAI Text (Right Side) -->
-  <text x="70" y="40" fill="white" font-family="Arial, sans-serif" font-size="24" font-weight="bold">
+  <!-- EdgeAI Text -->
+  <text x="70" y="40" fill="#E0E0E0" font-family="Arial, sans-serif" font-size="24" font-weight="bold">
     EdgeAI
   </text>
 </svg>
