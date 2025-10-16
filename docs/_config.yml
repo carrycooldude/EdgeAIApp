@@ -53,6 +53,11 @@ defaults:
       type: "releases"
     values:
       layout: "documentation"
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "default"
 
 # Exclude from processing
 exclude:
