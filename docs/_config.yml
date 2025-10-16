@@ -3,7 +3,7 @@
 # Site settings
 title: EdgeAI Documentation
 description: Real ExecuTorch + QNN Integration for Llama3.2-1B inference on Android
-baseurl: ""
+baseurl: "/EdgeAIApp-ExecuTorch"
 url: "https://carrycooldude.github.io"
 
 # Build settings
