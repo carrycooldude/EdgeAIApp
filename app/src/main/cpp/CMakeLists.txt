@@ -31,6 +31,7 @@ add_library(edgeai_qnn SHARED
     qnn_manager.cpp
     real_qnn_inference.cpp
     improved_llama_inference.cpp
+    real_executorch_qnn.cpp # Real ExecuTorch + QNN integration
 )
 
 # Set properties for 16 KB page size compatibility

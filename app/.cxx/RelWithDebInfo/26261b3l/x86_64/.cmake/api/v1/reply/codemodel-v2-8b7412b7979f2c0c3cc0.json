@@ -39,7 +39,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "edgeai_qnn::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-edgeai_qnn-RelWithDebInfo-ee317e9f6980956006a5.json",
+					"jsonFile" : "target-edgeai_qnn-RelWithDebInfo-ffba31603e1272ebc856.json",
 					"name" : "edgeai_qnn",
 					"projectIndex" : 0
 				}
@@ -49,7 +49,7 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "C:/Users/rawat/AndroidStudioProjects/EdgeAI/app/.cxx/RelWithDebInfo/26261b3l/arm64-v8a",
+		"build" : "C:/Users/rawat/AndroidStudioProjects/EdgeAI/app/.cxx/RelWithDebInfo/26261b3l/x86_64",
 		"source" : "C:/Users/rawat/AndroidStudioProjects/EdgeAI/app/src/main/cpp"
 	},
 	"version" : 

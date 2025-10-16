@@ -960,10 +960,19 @@ class LLaMAInference(private val context: Context) {
                 Log.i(TAG, "📁 Tokenizer: $tokenizerPath")
                 Log.i(TAG, "📁 Params: $paramsPath")
                 
-                // Since native methods don't exist, we'll simulate success
-                Log.i(TAG, "✅ Simulated native LLaMA initialization successful")
-                nativeLibraryAvailable = true
-                true
+                // Try real ExecuTorch + QNN initialization
+                val contextBinariesPath = File(dir, "context_binaries").absolutePath
+                val success = nativeInitializeRealExecuTorch(modelPath, tokenizerPath, contextBinariesPath)
+                
+                if (success) {
+                    Log.i(TAG, "✅ Real ExecuTorch + QNN initialization successful")
+                    nativeLibraryAvailable = true
+                    true
+                } else {
+                    Log.w(TAG, "⚠️ Real ExecuTorch initialization failed, using simulated mode")
+                    nativeLibraryAvailable = true // Still allow simulated mode
+                    true
+                }
             } ?: false
         } catch (e: Exception) {
             Log.e(TAG, "❌ Native initialization error: ${e.message}", e)
@@ -987,8 +996,14 @@ class LLaMAInference(private val context: Context) {
             if (nativeLibraryAvailable && nativeLibraryLoaded) {
                 try {
                     Log.i(TAG, "🔄 Attempting native inference...")
-                    // Since native methods don't exist, we'll skip this
-                    Log.w(TAG, "⚠️ Native inference not available, using simulated mode")
+                    // Try real ExecuTorch + QNN inference
+                    val response = nativeGenerateRealResponse(inputText, 100, 0.7f)
+                    if (response.isNotEmpty() && !response.startsWith("Error:")) {
+                        Log.i(TAG, "✅ Real ExecuTorch + QNN inference successful")
+                        return response
+                    } else {
+                        Log.w(TAG, "⚠️ Real ExecuTorch inference failed, using simulated mode")
+                    }
                 } catch (e: Exception) {
                     Log.w(TAG, "⚠️ Native inference failed: ${e.message}")
                 }

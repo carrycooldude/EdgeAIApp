@@ -1,9 +1,9 @@
 # ninja log v5
-12	1165	7823048793827441	CMakeFiles/edgeai_qnn.dir/real_qnn_inference.cpp.o	539950c10fd897fd
-2	872	7823048790978907	CMakeFiles/edgeai_qnn.dir/qnn_infer.cpp.o	a6977d6f33bf1039
 7	737	7823048789659544	CMakeFiles/edgeai_qnn.dir/qnn_manager.cpp.o	e7024baed88ebfb8
+2	872	7823048790978907	CMakeFiles/edgeai_qnn.dir/qnn_infer.cpp.o	a6977d6f33bf1039
+12	1165	7823048793827441	CMakeFiles/edgeai_qnn.dir/real_qnn_inference.cpp.o	539950c10fd897fd
 1165	1365	7823048795527065	C:/Users/rawat/AndroidStudioProjects/EdgeAI/app/build/intermediates/cxx/Debug/5u3hu282/obj/armeabi-v7a/libedgeai_qnn.so	1b83d0eba743a6
-0	16	0	clean	c4586a5fa164368a
-1	162	7823132945099056	build.ninja	792fa4f78b417489
-0	125	7823132945099056	build.ninja	792fa4f78b417489
 0	15	0	clean	c4586a5fa164368a
+0	125	7823277036517523	build.ninja	792fa4f78b417489
+0	145	7823277036517523	build.ninja	792fa4f78b417489
+0	18	0	clean	c4586a5fa164368a

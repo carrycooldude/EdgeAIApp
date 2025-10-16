@@ -6,7 +6,7 @@
 			[
 				{
 					"build" : ".",
-					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"jsonFile" : "directory-.-RelWithDebInfo-d0094a50bb2071803777.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.6.0"
@@ -19,7 +19,7 @@
 					]
 				}
 			],
-			"name" : "Debug",
+			"name" : "RelWithDebInfo",
 			"projects" : 
 			[
 				{
@@ -39,7 +39,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "edgeai_qnn::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-edgeai_qnn-Debug-e51bc8128c2067101413.json",
+					"jsonFile" : "target-edgeai_qnn-RelWithDebInfo-fd2a12b57d1040a12a3e.json",
 					"name" : "edgeai_qnn",
 					"projectIndex" : 0
 				}
@@ -49,7 +49,7 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "C:/Users/rawat/AndroidStudioProjects/EdgeAI/app/.cxx/Debug/5u3hu282/arm64-v8a",
+		"build" : "C:/Users/rawat/AndroidStudioProjects/EdgeAI/app/.cxx/RelWithDebInfo/26261b3l/arm64-v8a",
 		"source" : "C:/Users/rawat/AndroidStudioProjects/EdgeAI/app/src/main/cpp"
 	},
 	"version" : 
