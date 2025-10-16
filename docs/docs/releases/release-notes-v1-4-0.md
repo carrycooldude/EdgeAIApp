@@ -17,7 +17,7 @@ sidebar_position: 1
 - ✅ **ARM64-v8a Support**: Native Android architecture
 
 ### Professional Documentation
-- ✅ **Docusaurus Website**: Modern, responsive documentation
+- ✅ **EdgeAI Documentation Platform**: Modern, responsive documentation
 - ✅ **Technical Guides**: Comprehensive setup and architecture docs
 - ✅ **GitHub Pages**: Automatic deployment and hosting
 - ✅ **Mobile Optimized**: Perfect mobile documentation experience
@@ -38,7 +38,7 @@ sidebar_position: 1
 
 ## 📚 Documentation
 
-### New Documentation Website
+### New EdgeAI Documentation Platform
 - **Getting Started**: Quick setup guide
 - **Technical Docs**: Deep dive into architecture
 - **Setup Guides**: Step-by-step configuration
@@ -73,7 +73,7 @@ sidebar_position: 1
 ## 🔄 Migration from Previous Versions
 
 ### From v1.3.0
-- Documentation moved to Docusaurus
+- Documentation moved to EdgeAI Documentation Platform
 - Improved native inference engine
 - Better error handling and logging
 

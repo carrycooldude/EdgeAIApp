@@ -127,7 +127,7 @@ const config: Config = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} EdgeAI. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} EdgeAI. Built with EdgeAI Documentation Platform.`,
     },
     prism: {
       theme: prismThemes.github,
