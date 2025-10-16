@@ -1,0 +1,65 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#1a1a2e"/>
+  
+  <!-- Gradient overlay -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#16213e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0f3460;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="logoGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#4A90E2;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2E5BBA;stop-opacity:1" />
+    </linearGradient>
+    <radialGradient id="flameGradient" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" />
+      <stop offset="70%" style="stop-color:#FF8C00;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FF4500;stop-opacity:1" />
+    </radialGradient>
+  </defs>
+  
+  <rect width="1200" height="630" fill="url(#bgGradient)"/>
+  
+  <!-- Large EdgeAI Logo -->
+  <g transform="translate(400, 150)">
+    <!-- Background square -->
+    <rect width="200" height="200" rx="30" fill="url(#logoGradient)"/>
+    
+    <!-- Torch base -->
+    <rect x="90" y="130" width="20" height="50" fill="#4A90E2"/>
+    
+    <!-- Torch flame -->
+    <ellipse cx="100" cy="120" rx="15" ry="20" fill="url(#flameGradient)"/>
+    
+    <!-- Circuit branches -->
+    <!-- Left branch -->
+    <path d="M60 100 Q40 80 20 100" stroke="#4A90E2" stroke-width="8" fill="none"/>
+    <circle cx="20" cy="100" r="8" fill="#7BB3F0"/>
+    <circle cx="40" cy="90" r="5" fill="#7BB3F0"/>
+    
+    <!-- Right branch -->
+    <path d="M140 100 Q160 80 180 100" stroke="#4A90E2" stroke-width="8" fill="none"/>
+    <circle cx="180" cy="100" r="8" fill="#7BB3F0"/>
+    <circle cx="160" cy="90" r="5" fill="#7BB3F0"/>
+    
+    <!-- Additional circuit nodes -->
+    <circle cx="70" cy="105" r="4" fill="#7BB3F0"/>
+    <circle cx="130" cy="105" r="4" fill="#7BB3F0"/>
+  </g>
+  
+  <!-- Title Text -->
+  <text x="600" y="420" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="48" font-weight="bold">
+    EdgeAI Documentation
+  </text>
+  
+  <!-- Subtitle -->
+  <text x="600" y="470" text-anchor="middle" fill="#B0B0B0" font-family="Arial, sans-serif" font-size="24">
+    Real ExecuTorch + QNN Integration
+  </text>
+  
+  <!-- Tagline -->
+  <text x="600" y="510" text-anchor="middle" fill="#808080" font-family="Arial, sans-serif" font-size="18">
+    Llama3.2-1B inference on Android
+  </text>
+</svg>
