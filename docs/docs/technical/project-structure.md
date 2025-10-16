@@ -16,11 +16,11 @@ EdgeAI/
 │   │   ├── cpp/                  # Native C++ code
 │   │   └── assets/               # App assets
 │   └── build.gradle.kts          # Build configuration
-├── docs/                         # Docusaurus documentation
+├── docs/                         # EdgeAI Documentation Platform
 │   ├── docs/                     # Documentation content
-│   ├── src/                      # Docusaurus source files
+│   ├── src/                      # EdgeAI source files
 │   ├── static/                   # Static assets
-│   └── docusaurus.config.ts     # Docusaurus configuration
+│   └── docusaurus.config.ts     # EdgeAI configuration
 ├── backup_qnn_libs/              # QNN library backups
 └── build/                        # Build outputs
 ```
@@ -33,7 +33,7 @@ EdgeAI/
 - **Assets**: Model files and resources
 
 ### Documentation (`docs/`)
-- **Docusaurus-based**: Modern documentation framework
+- **EdgeAI Documentation Platform**: Modern documentation framework
 - **Organized content**: Technical docs, setup guides, releases
 - **Responsive design**: Mobile-friendly documentation
 
