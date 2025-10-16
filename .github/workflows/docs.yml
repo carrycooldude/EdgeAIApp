@@ -27,34 +27,32 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         
-      - name: Setup Ruby
-        uses: ruby/setup-ruby@v1
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          ruby-version: '3.1'
-          bundler-cache: true
-          working-directory: ./docs
+          node-version: '18'
+          cache: 'npm'
+          cache-dependency-path: docs/package-lock.json
         
       - name: Setup Pages
         uses: actions/configure-pages@v4
         
-      - name: Clean and Install Dependencies
+      - name: Install Dependencies
         run: |
           cd docs
-          rm -f Gemfile.lock
-          bundle install --clean
+          npm ci
           
-      - name: Build with Jekyll
+      - name: Build Docusaurus
         run: |
           cd docs
-          bundle exec jekyll build --verbose
+          npm run build
         env:
-          JEKYLL_ENV: production
-          JEKYLL_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NODE_ENV: production
         
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './docs/_site'
+          path: './docs/build'
 
   deploy:
     environment:
